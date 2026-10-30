@@ -46,3 +46,15 @@ npm run build
 
 - 预期输出：`dist/` 构建产物。
 - 实测：2026-10-30 ✅ `npm run build` 通过。
+
+### GitHub Pages 部署
+
+```bash
+git push origin main
+gh run list --repo 494739635/nuomi --workflow deploy-pages.yml --limit 1
+```
+
+- 仓库：`https://github.com/494739635/nuomi`（公开）。
+- Pages 地址：`https://494739635.github.io/nuomi/`。
+- 触发条件：推送 `main` 后由 `.github/workflows/deploy-pages.yml` 构建并发布。
+- 实测：2026-10-30 ✅ Pages `build_type=workflow`，最近一次 Actions run `success`；线上 HTTP 检查 `passed outside sandbox`（HTTP 200）。
